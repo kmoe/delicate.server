@@ -1,0 +1,10 @@
+{
+  "address": ":8080",
+  "plugins": [{
+    "name": "logger"
+  }, {
+    "name": "static",
+    "browse": false,
+    "root": "static"
+  }]
+}
