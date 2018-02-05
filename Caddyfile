@@ -1,0 +1,57 @@
+delicate.computer {
+  root delicate.computer/www
+  gzip
+  log delicate.computer.access.log
+  ext .md .html
+
+  rewrite {
+    to /poasts/finished/{path}.md /{path} {path} 
+  } 
+
+  internal /poasts/drafts/
+
+  markdown / {
+    template md.html
+  }
+}
+
+drafts.delicate.computer {
+  root delicate.computer/www
+  gzip
+  log drafts.delicate.computer.access.log
+  ext .md .html
+
+  rewrite {
+    to /poasts/finished/{path}.md /poasts/drafts/{path}.md /{path} {path} 
+  } 
+  
+  markdown / {
+    template md.html
+  }
+
+  basicauth lol not_putting_my_password_on_github {
+    realm "all"
+    /
+  }
+}
+
+very.delicate.computer {
+  root delicate.computer/very/
+}
+
+veri.delicate.computer {
+  root delicate.computer/very/
+}
+
+katy.moe {
+  root katy.moe/www
+  gzip
+  log katy.moe.access.log
+  ext .html
+
+  redir 301 {
+	  if {>X-Forwarded-Proto} is http
+	  /  https://{host}{uri}
+  }
+}
+
