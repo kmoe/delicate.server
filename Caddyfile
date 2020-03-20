@@ -5,7 +5,7 @@ delicate.computer {
   ext .md .html
 
   rewrite {
-    to /poasts/finished/{path}.md /{path} {path} 
+    to /poasts/finished/{path}.md /poasts/log/{path}.html /{path} {path} 
   } 
 
   internal /poasts/drafts/
